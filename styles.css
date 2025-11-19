@@ -1,0 +1,233 @@
+/* Import modern font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    position: relative;
+}
+
+/* Stars animation layers */
+.stars,
+.stars2,
+.stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.stars {
+    background: transparent url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjkwMCI+CjxyZWN0IGZpbGw9IiMwOTBBMEYiIHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjkwMCIvPgo8ZyBmaWxsPSIjRkZGIiBmaWxsLW9wYWNpdHk9Ii43Ij4KPGNpcmNsZSBjeD0iMTAxIiBjeT0iNDI1IiByPSIxIi8+CjxjaXJjbGUgY3g9IjU4MCIgY3k9IjgwIiByPSIxIi8+CjxjaXJjbGUgY3g9IjM1MCIgY3k9IjY1MCIgcj0iMSIvPgo8Y2lyY2xlIGN4PSIxMjAwIiBjeT0iMzAwIiByPSIxIi8+CjxjaXJjbGUgY3g9IjkwMCIgY3k9IjcwMCIgcj0iMSIvPgo8Y2lyY2xlIGN4PSI3MDAiIGN5PSI0MDAiIHI9IjEiLz4KPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSIxIi8+CjxjaXJjbGUgY3g9IjEzMDAiIGN5PSI2MDAiIHI9IjEiLz4KPGNpcmNsZSBjeD0iNDAwIiBjeT0iMTAwIiByPSIxIi8+CjxjaXJjbGUgY3g9IjExMDAiIGN5PSI4MDAiIHI9IjEiLz4KPC9nPgo8L3N2Zz4=') repeat;
+    animation: animateStars 100s linear infinite;
+}
+
+.stars2 {
+    background: transparent url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjkwMCI+CjxyZWN0IGZpbGw9IiMwOTBBMEYiIHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjkwMCIvPgo8ZyBmaWxsPSIjRkZGIiBmaWxsLW9wYWNpdHk9Ii41Ij4KPGNpcmNsZSBjeD0iNjAwIiBjeT0iNTAwIiByPSIyIi8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjcwMCIgcj0iMiIvPgo8Y2lyY2xlIGN4PSI4MDAiIGN5PSIyMDAiIHI9IjIiLz4KPGNpcmNsZSBjeD0iMzAwIiBjeT0iMzUwIiByPSIyIi8+CjxjaXJjbGUgY3g9IjEyNTAiIGN5PSI0NTAiIHI9IjIiLz4KPGNpcmNsZSBjeD0iNDUwIiBjeT0iNzUwIiByPSIyIi8+CjxjaXJjbGUgY3g9Ijk1MCIgY3k9IjU1MCIgcj0iMiIvPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIxNTAiIHI9IjIiLz4KPC9nPgo8L3N2Zz4=') repeat;
+    animation: animateStars 150s linear infinite;
+}
+
+.stars3 {
+    background: transparent url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjkwMCI+CjxyZWN0IGZpbGw9IiMwOTBBMEYiIHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjkwMCIvPgo8ZyBmaWxsPSIjRkZGIiBmaWxsLW9wYWNpdHk9Ii4zIj4KPGNpcmNsZSBjeD0iNTAwIiBjeT0iNjAwIiByPSIzIi8+CjxjaXJjbGUgY3g9IjEwNTAiIGN5PSIxNTAiIHI9IjMiLz4KPGNpcmNsZSBjeD0iMjUwIiBjeT0iNDUwIiByPSIzIi8+CjxjaXJjbGUgY3g9Ijc1MCIgY3k9Ijc1MCIgcj0iMyIvPgo8Y2lyY2xlIGN4PSIxMzUwIiBjeT0iMzUwIiByPSIzIi8+PC9nPgo8L3N2Zz4=') repeat;
+    animation: animateStars 200s linear infinite;
+}
+
+@keyframes animateStars {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-900px);
+    }
+}
+
+/* Container and layout */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-top: 40px;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 0.2em;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(147, 197, 253, 0.6),
+        0 0 30px rgba(96, 165, 250, 0.4);
+    margin-bottom: 10px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 
+            0 0 10px rgba(255, 255, 255, 0.8),
+            0 0 20px rgba(147, 197, 253, 0.6),
+            0 0 30px rgba(96, 165, 250, 0.4);
+    }
+    to {
+        text-shadow: 
+            0 0 20px rgba(255, 255, 255, 1),
+            0 0 30px rgba(147, 197, 253, 0.8),
+            0 0 40px rgba(96, 165, 250, 0.6),
+            0 0 50px rgba(59, 130, 246, 0.4);
+    }
+}
+
+/* Grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Glassmorphism cards */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(96, 165, 250, 0.2);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #e0f2fe;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #bae6fd;
+    opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .title {
+        font-size: 4rem;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+        letter-spacing: 0.15em;
+    }
+    
+    .container {
+        padding: 30px 15px;
+    }
+    
+    header {
+        margin-bottom: 40px;
+        padding-top: 20px;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .card {
+        padding: 30px 20px;
+    }
+    
+    .card-icon {
+        font-size: 3rem;
+    }
+    
+    .card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.2rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        padding: 25px 20px;
+    }
+}
