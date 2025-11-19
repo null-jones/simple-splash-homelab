@@ -1,5 +1,5 @@
-/* Import modern font */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+/* Import modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Exo+2:wght@700;800;900&display=swap');
 
 /* Reset and base styles */
 * {
@@ -9,7 +9,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
     background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
@@ -70,17 +70,26 @@ header {
 }
 
 .title {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Exo 2', 'Space Grotesk', sans-serif;
     font-size: 5rem;
     font-weight: 900;
     color: #fff;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     text-shadow: 
         0 0 10px rgba(255, 255, 255, 0.8),
         0 0 20px rgba(147, 197, 253, 0.6),
         0 0 30px rgba(96, 165, 250, 0.4);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     animation: glow 2s ease-in-out infinite alternate;
+}
+
+.subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgba(186, 230, 253, 0.8);
+    letter-spacing: 0.05em;
+    margin-top: 0;
 }
 
 @keyframes glow {
@@ -109,72 +118,162 @@ header {
 
 /* Glassmorphism cards */
 .card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 40px 30px;
+    background: linear-gradient(135deg, 
+        rgba(147, 197, 253, 0.1) 0%, 
+        rgba(96, 165, 250, 0.05) 50%,
+        rgba(139, 92, 246, 0.1) 100%);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-radius: 24px;
+    padding: 35px 25px;
     text-align: center;
     text-decoration: none;
     color: #fff;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, 
+        rgba(147, 197, 253, 0.4), 
+        rgba(96, 165, 250, 0.2),
+        rgba(139, 92, 246, 0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
     background: linear-gradient(
-        90deg,
+        45deg,
         transparent,
-        rgba(255, 255, 255, 0.1),
+        rgba(147, 197, 253, 0.1),
         transparent
     );
-    transition: left 0.5s;
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
 }
 
 .card:hover::before {
-    left: 100%;
+    opacity: 1;
+}
+
+.card:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
 }
 
 .card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transform: translateY(-5px);
+    background: linear-gradient(135deg, 
+        rgba(147, 197, 253, 0.15) 0%, 
+        rgba(96, 165, 250, 0.1) 50%,
+        rgba(139, 92, 246, 0.15) 100%);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.3),
-        0 0 20px rgba(96, 165, 250, 0.2);
+        0 16px 48px rgba(96, 165, 250, 0.2),
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .card-icon {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    filter: drop-shadow(0 0 12px rgba(147, 197, 253, 0.5));
+    transition: all 0.4s ease;
+    display: inline-block;
+}
+
+.card:hover .card-icon {
+    transform: scale(1.15) rotateY(10deg);
+    filter: drop-shadow(0 0 20px rgba(147, 197, 253, 0.8));
 }
 
 .card h2 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-weight: 700;
+    margin-bottom: 8px;
     color: #e0f2fe;
+    transition: color 0.3s ease;
 }
 
-.card p {
-    font-size: 1rem;
-    color: #bae6fd;
-    opacity: 0.8;
+.card:hover h2 {
+    color: #fff;
+}
+
+.card-category {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(147, 197, 253, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(186, 230, 253, 0.7);
+    line-height: 1.5;
+    margin-top: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.card:hover .card-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 40px 20px 30px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(147, 197, 253, 0.1);
+}
+
+footer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(186, 230, 253, 0.6);
+    letter-spacing: 0.02em;
 }
 
 /* Responsive design */
 @media (max-width: 1200px) {
     .title {
         font-size: 4rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
     }
     
     .grid {
@@ -186,7 +285,11 @@ header {
 @media (max-width: 768px) {
     .title {
         font-size: 3rem;
-        letter-spacing: 0.15em;
+        letter-spacing: 0.1em;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
     }
     
     .container {
@@ -215,12 +318,20 @@ header {
     .card h2 {
         font-size: 1.5rem;
     }
+    
+    .card-description {
+        font-size: 0.85rem;
+    }
 }
 
 @media (max-width: 480px) {
     .title {
         font-size: 2.2rem;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
     }
     
     .grid {
@@ -229,5 +340,10 @@ header {
     
     .card {
         padding: 25px 20px;
+    }
+    
+    .card-description {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
