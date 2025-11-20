@@ -10,6 +10,10 @@
     <div class="stars"></div>
     <div class="stars2"></div>
     <div class="stars3"></div>
+    <div class="stars4"></div>
+    <div class="stars5"></div>
+    
+    <a href="#help-section" class="help-button">?</a>
     
     <div class="container">
         <header>
@@ -18,18 +22,18 @@
         </header>
         
         <main class="grid">
-            <a href="https://plex.local" class="card" target="_blank">
+            <a href="https://jellyfin.local" class="card" target="_blank">
                 <div class="card-icon">🎬</div>
-                <h2>Plex</h2>
+                <h2>Jellyfin</h2>
                 <p class="card-category">Media Server</p>
-                <p class="card-description">Stream your movies, TV shows, and music to any device</p>
+                <p class="card-description">Open-source media streaming for movies, TV shows, and music</p>
             </a>
             
-            <a href="https://portainer.local" class="card" target="_blank">
-                <div class="card-icon">🐳</div>
-                <h2>Portainer</h2>
-                <p class="card-category">Container Management</p>
-                <p class="card-description">Manage your Docker containers with an intuitive interface</p>
+            <a href="https://jellyseerr.local" class="card" target="_blank">
+                <div class="card-icon">📺</div>
+                <h2>JellySeerr</h2>
+                <p class="card-category">Request Content</p>
+                <p class="card-description">Request new movies and TV shows for your media library</p>
             </a>
             
             <a href="https://homeassistant.local" class="card" target="_blank">
@@ -67,13 +71,47 @@
                 <p class="card-description">Network-wide ad blocking and DNS management</p>
             </a>
             
-            <a href="https://router.local" class="card" target="_blank">
-                <div class="card-icon">🌐</div>
-                <h2>Router</h2>
-                <p class="card-category">Network Admin</p>
-                <p class="card-description">Configure and monitor your network settings</p>
+            <a href="https://minecraft.local" class="card" target="_blank">
+                <div class="card-icon">⛏️</div>
+                <h2>Minecraft</h2>
+                <p class="card-category">Game Server</p>
+                <p class="card-description">Join the server and play with friends</p>
             </a>
         </main>
+        
+        <section id="help-section" class="help-section">
+            <h2>Getting Started</h2>
+            <div class="help-content">
+                <div class="help-card">
+                    <div class="help-icon">🚀</div>
+                    <h3>Step 1: Set Up Your Services</h3>
+                    <p>Each card above links to a service in your homelab. Replace the placeholder URLs (e.g., <code>https://jellyfin.local</code>) with your actual service addresses.</p>
+                </div>
+                
+                <div class="help-card">
+                    <div class="help-icon">🔧</div>
+                    <h3>Step 2: Customize</h3>
+                    <p>Edit <code>index.html</code> to add, remove, or modify service cards. Change the icons, titles, and descriptions to match your setup.</p>
+                </div>
+                
+                <div class="help-card">
+                    <div class="help-icon">🌐</div>
+                    <h3>Step 3: Deploy</h3>
+                    <p>Host this page on any web server (nginx, Apache, or even GitHub Pages). Set it as your browser's homepage for quick access to all your services.</p>
+                </div>
+                
+                <div class="help-card">
+                    <div class="help-icon">💡</div>
+                    <h3>Pro Tips</h3>
+                    <ul>
+                        <li>Use a reverse proxy like Traefik or nginx for HTTPS</li>
+                        <li>Set up local DNS entries for cleaner URLs</li>
+                        <li>Consider using Docker Compose for easy deployment</li>
+                        <li>Enable authentication for services exposed to the internet</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
         
         <footer>
             <p>&copy; 2025 JONESBOX Homelab. Built with passion for self-hosting.</p>
